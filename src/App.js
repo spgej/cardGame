@@ -2,30 +2,10 @@ import React from "react";
 import "./styles.css";
 import { useState } from "react";
 import BoardCard from "./BoardCard";
+import {initDeck} from "./initDeck.js";
 
 export default function App() {
-  const initDeck = [
-    {
-      id: 1,
-      value: 1
-    },
-    {
-      id: 2,
-      value: 2
-    },
-    {
-      id: 3,
-      value: 3
-    },
-    {
-      id: 4,
-      value: 4
-    },
-    {
-      id: 5,
-      value: 5
-    }
-  ];
+
   const [total, setTotal] = useState(0);
   const [deck, setDeck] = useState(initDeck);
   const [board, setBoard] = useState([]);
@@ -50,7 +30,7 @@ export default function App() {
   const drawCard = () => {
     if (deck.length === 0) {
       console.log("Out of Cards");
-    } else {
+    } else if (total < 20) {
       let newCard = Math.floor(Math.random() * deck.length);
       setTotal(total + deck[newCard].value);
       //console.log(deck[newCard].value);
