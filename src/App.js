@@ -2,7 +2,7 @@ import React from "react";
 import "./styles.css";
 import { useState } from "react";
 import BoardCard from "./BoardCard";
-import {initDeck} from "./initDeck.js";
+import { initDeck } from "./initDeck.js";
 
 export default function App() {
 
