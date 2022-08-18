@@ -2,7 +2,6 @@ import React from "react";
 import "./styles.css";
 import { useState } from "react";
 import { sideDeck } from "./sideDeck.js";
-import BoardCard from "./BoardCard.jsx";
 
 
 export default function SideBoard() {
@@ -13,25 +12,33 @@ export default function SideBoard() {
 
     const drawSide = (i) => {
         if (sideBoard.length === 4) {
-            console.log('only 4 cards')
+            console.log('Only 4 cards allowed per side board')
         }  else {
             for (let i = 0; i < 4; i++) {
                 let newSideCard = Math.floor(Math.random() * sDeck.length);
                 const removedSideCard = sDeck.splice(newSideCard, 1);
                 setSideBoard(current => [...current, removedSideCard]);
+                setSDeck(sDeck)
                 //console.log(sideBoard);
               }     
         }
       };
 
+      const SideBoardCard = (props) => {
+        return (
+          <button className="sideCard">{props.value}</button>
+        );
+      };
+
       const createSCard = (card) => {
-        return <BoardCard key={card[0].id} value={card[0].value} />;
+        return <SideBoardCard key={card[0].id} value={card[0].value} />;
       };
 
       return (
-        <div>
+        <div className="sboard">
+            <h3>Side Board</h3>
             {sideBoard.map(createSCard)}
-            <button onClick = {() => drawSide()}>Draw Side</button>
+            <button  className="btn" onClick = {() => drawSide()}>Draw Side</button>
         </div>
       );
 

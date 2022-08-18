@@ -1,7 +1,11 @@
-button {
+.btn {
   width: 100px;
   height: 40px;
-  margin: 5px auto;
+  margin: 10px;
+}
+
+h3 {
+  width: 100%;
 }
 
 .App {
@@ -17,8 +21,18 @@ button {
   flex-direction: row;
   margin: auto;
   justify-content: center;
-  width: 400px;
+  width: 350px;
   height: 375px;
+  flex-flow: wrap;
+}
+
+.sboard {
+  display: flex;
+  flex-direction: row;
+  margin: 40px auto;
+  justify-content: center;
+  width: 500px;
+  height: auto;
   flex-flow: wrap;
 }
 
@@ -28,4 +42,13 @@ button {
   border-radius: 4px;
   width: 80px;
   height: 100px;
+}
+
+.sideCard {
+  border: solid black 1px;
+  margin: 10px;
+  border-radius: 4px;
+  width: 80px;
+  height: 100px;
+  background-color: transparent;
 }

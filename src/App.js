@@ -46,10 +46,13 @@ export default function App() {
 
   return (
     <div className="App">
+    <h3>Total</h3>
       <h1>{total}</h1>
       <div className="board">{board.map(createCard)}</div>
-      <button onClick={() => drawCard()}>Draw</button>
-      <button onClick={() => reset()}>Reset</button>
+      <div>
+        <button className="btn" onClick={() => drawCard()}>Draw</button>
+        <button className="btn" onClick={() => reset()}>Reset</button>
+      </div>
       <SideBoard />
     </div>
   );
