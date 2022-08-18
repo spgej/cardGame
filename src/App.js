@@ -3,6 +3,8 @@ import "./styles.css";
 import { useState } from "react";
 import BoardCard from "./BoardCard";
 import { initDeck } from "./initDeck.js";
+import SideBoard from "./SideBoard";
+
 
 export default function App() {
 
@@ -48,6 +50,7 @@ export default function App() {
       <div className="board">{board.map(createCard)}</div>
       <button onClick={() => drawCard()}>Draw</button>
       <button onClick={() => reset()}>Reset</button>
+      <SideBoard />
     </div>
   );
 }
