@@ -3,8 +3,7 @@ import "./styles.css";
 import { useState } from "react";
 import BoardCard from "./BoardCard";
 import { initDeck } from "./initDeck.js";
-import {sideDeck} from "./sideDeck";
-
+import { sideDeck } from "./sideDeck";
 
 export default function App() {
 
@@ -13,9 +12,9 @@ export default function App() {
   const [board, setBoard] = useState([]);
   const [sDeck, setSDeck] = useState(sideDeck);
   const [sideBoard, setSideBoard] = useState([]);
+  // const [show, setShow] = useState(false);
 
-
-  //reset the game, board, and deck
+  // reset the game, board, and deck
 
   const reset = () => {
     setTotal(0);
@@ -24,13 +23,13 @@ export default function App() {
     setSideBoard([]);
   }
 
-  //createCard maps the board with all drawn cards
+  // createCard maps the board with all drawn cards
 
   const createCard = (card) => {
     return <BoardCard key={card[0].id} value={card[0].value} />;
   };
 
-  //draws a card and removes it from the deck
+  // draws a card and removes it from the deck
   // to add to the total score and board state
 
   const drawCard = () => {
@@ -45,23 +44,24 @@ export default function App() {
             const removedSideCard = sDeck.splice(newSideCard, 1);
             setSideBoard(current => [...current, removedSideCard]);
             setSDeck(sDeck)
-            //console.log(sideBoard);
+            // console.log(sideBoard);
           }     
     }
       let newCard = Math.floor(Math.random() * deck.length);
       setTotal(total + deck[newCard].value);
-      //console.log(deck[newCard].value);
+      // console.log(deck[newCard].value);
       const removedCard = deck.splice(newCard, 1);
       setBoard([...board, removedCard]);
-      //console.log(board);
-      //console.log(removedCard[0].value);
+      // console.log(board);
+      // console.log(removedCard[0].value);
       setDeck(deck);
     }
   };
 
   const SideBoard = () => {
 
-      //template for drawn side cards
+  
+      // template for drawn side cards
 
       const SideBoardCard = (props) => {
         // Allows sideboard cards to affect total
@@ -71,6 +71,7 @@ export default function App() {
               console.log("Cannot bring total below zero!")
             } else {
               setTotal(total + props.value);
+              setShow(!show);
             }
         }
         return (
@@ -83,7 +84,7 @@ export default function App() {
         return <SideBoardCard key={card[0].id} value={card[0].value} />;
       };
       
-      //maps the sideboard
+      // maps the sideboard
 
       return (
         <div className="sboard">
@@ -93,7 +94,7 @@ export default function App() {
       );
 
 }
-    //UI for the game
+    // UI for the game
   return (
     <div className="App">
     <h3>Total</h3>
