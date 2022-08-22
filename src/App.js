@@ -12,7 +12,7 @@ export default function App() {
   const [board, setBoard] = useState([]);
   const [sDeck, setSDeck] = useState(sideDeck);
   const [sideBoard, setSideBoard] = useState([]);
-  const [show, setShow] = useState(false);
+  const [hide, setHide] = useState(false);
 
   // reset the game, board, and deck
 
@@ -22,6 +22,7 @@ export default function App() {
     setBoard([]);
     setSDeck(sideDeck);
     setSideBoard([]);
+    setHide(!hide)
   };
 
   // draws a card and removes it from the deck
@@ -75,7 +76,8 @@ export default function App() {
         sideBoard={sideBoard}
         total={total}
         setTotal={setTotal}
-        show={show}
+        hide={hide}
+        setHide={setHide}
       />
     </div>
   );

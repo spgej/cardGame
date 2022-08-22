@@ -1,10 +1,10 @@
 import React from "react";
 import "./styles.css";
 
-const BoardCard = (props) => {
+const BoardCard = ({value}) => {
   return (
     <div className="boardCard">
-      <p>{props.value}</p>
+      <p>{value}</p>
     </div>
   );
 };
