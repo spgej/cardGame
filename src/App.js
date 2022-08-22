@@ -2,56 +2,9 @@ import React from "react";
 import "./styles.css";
 import { useState } from "react";
 import BoardCard from "./BoardCard";
+import SideBoard from "./SideBoard";
 import { initDeck } from "./initDeck.js";
 import { sideDeck } from "./sideDeck";
-
-/**
- *
- * NEEDS TO BE SEPARATE FROM APP
- */
-const SideBoardCard = ({ value, id, total, setTotal, show }) => {
-  // Allows sideboard cards to affect total
-  // REMOVE SIDE CARD FROM BOARD ONCE USED
-  function useSideCard() {
-    if (total + value < 0) {
-      console.log("Cannot bring total below zero!");
-    } else {
-      setTotal(total + value);
-      show;
-    }
-  }
-  return (
-    <button id={id} onClick={() => useSideCard()} className="sideCard">
-      {value}
-    </button>
-  );
-};
-
-/**
- *
- * NEEDS TO BE SEPARATE FROM APP
- */
-const SideBoard = ({ sideBoard, setTotal, total, show }) => {
-  // maps the sideboard
-
-  return (
-    <div className="sboard">
-      <h3>Side Board</h3>
-      {sideBoard.map((card) => {
-        return (
-          <SideBoardCard
-            id={card[0].id}
-            key={card[0].id}
-            value={card[0].value}
-            total={total}
-            show={show}
-            setTotal={setTotal}
-          />
-        );
-      })}
-    </div>
-  );
-};
 
 export default function App() {
   const [total, setTotal] = useState(0);
