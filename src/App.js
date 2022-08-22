@@ -20,6 +20,7 @@ export default function App() {
     setTotal(0);
     setDeck(initDeck);
     setBoard([]);
+    setSDeck(sideDeck);
     setSideBoard([]);
   }
 
@@ -58,30 +59,30 @@ export default function App() {
     }
   };
 
+  const SideBoardCard = (props) => {
+    // Allows sideboard cards to affect total
+    // REMOVE SIDE CARD FROM BOARD ONCE USED
+      function useSideCard() {
+        if (total + props.value < 0) {
+          console.log("Cannot bring total below zero!")
+        } else {
+          setTotal(total + props.value);
+          props.show;
+        }
+    }
+    return (
+      <button id={props.id} onClick = {() => useSideCard()} className="sideCard">{props.value}</button>
+    );
+  };
+
+
   const SideBoard = () => {
 
   
       // template for drawn side cards
-
-      const SideBoardCard = (props) => {
-        // Allows sideboard cards to affect total
-        // REMOVE SIDE CARD FROM BOARD ONCE USED
-          function useSideCard() {
-            if (total + props.value < "0" || total + props.value > "20") {
-              console.log("Cannot bring total below zero!")
-            } else {
-              setTotal(total + props.value);
-              setShow(!show);
-            }
-        }
-        return (
-          <button onClick = {() => useSideCard()} className="sideCard">{props.value}</button>
-        );
-      };
-
       
       const createSCard = (card) => {
-        return <SideBoardCard key={card[0].id} value={card[0].value} />;
+        return <SideBoardCard id={card[0].id} key={card[0].id} value={card[0].value} />;
       };
       
       // maps the sideboard
