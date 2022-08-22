@@ -1,6 +1,5 @@
 import React from "react";
 import "./styles.css";
-import { useState } from "react";
 
 export default function SideBoardCard({ value, id, total, setTotal, hide, setHide }) {
     // Allows sideboard cards to affect total
@@ -10,7 +9,7 @@ export default function SideBoardCard({ value, id, total, setTotal, hide, setHid
         console.log("Cannot bring total below zero!");
       } else {
         setTotal(total + value);
-        setHide(!hide);
+        //setHide(!hide);
       }
     }
     return (

@@ -22,7 +22,6 @@ export default function App() {
     setBoard([]);
     setSDeck(sideDeck);
     setSideBoard([]);
-    setHide(!hide)
   };
 
   // draws a card and removes it from the deck
