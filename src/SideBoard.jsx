@@ -2,7 +2,7 @@ import React from "react";
 import "./styles.css";
 import SideBoardCard from "./SideBoardCard";
 
-export default function SideBoard({ sideBoard, setTotal, total, hide, setHide }) {
+export default function SideBoard({ sideBoard, setTotal, total, hide, setIsVisible }) {
 
     return (
       <div className="sboard">
@@ -13,9 +13,9 @@ export default function SideBoard({ sideBoard, setTotal, total, hide, setHide })
               id={card[0].id}
               key={card[0].id}
               value={card[0].value}
+              isVisible={card[0].isVisible}
               total={total}
-              hide={hide}
-              setHide={setHide}
+              setIsVisible={setIsVisible}
               setTotal={setTotal}
             />
           );

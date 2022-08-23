@@ -5,6 +5,7 @@ import BoardCard from "./BoardCard";
 import SideBoard from "./SideBoard";
 import { initDeck } from "./initDeck.js";
 import { sideDeck } from "./sideDeck";
+import { is } from "express/lib/request";
 
 export default function App() {
   const [total, setTotal] = useState(0);
@@ -12,7 +13,7 @@ export default function App() {
   const [board, setBoard] = useState([]);
   const [sDeck, setSDeck] = useState(sideDeck);
   const [sideBoard, setSideBoard] = useState([]);
-  const [hide, setHide] = useState(false);
+  const [isVisible, setIsVisible] = useState(sideDeck[0].isVisible);
 
   // reset the game, board, and deck
 
@@ -75,8 +76,8 @@ export default function App() {
         sideBoard={sideBoard}
         total={total}
         setTotal={setTotal}
-        hide={hide}
-        setHide={setHide}
+        isVisible={isVisible}
+        setIsVisible={setIsVisible}
       />
     </div>
   );
