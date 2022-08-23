@@ -21,11 +21,7 @@ export default function SideBoardCard({ card, total, setTotal, setSideBoard }) {
     }
   }
   return (
-    <button
-      id={id}
-      onClick={() => useSideCard()}
-      className={isVisible ? "sideCard" : "usedCard"}
-    >
+    <button id={id} onClick={() => useSideCard()} className="sideCard">
       {value}
     </button>
   );

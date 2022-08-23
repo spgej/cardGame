@@ -11,17 +11,19 @@ export default function SideBoard({
   return (
     <div className="sboard">
       <h3>Side Board</h3>
-      {sideBoard.map((card) => {
-        return (
-          <SideBoardCard
-            key={card.id}
-            card={card}
-            total={total}
-            setSideBoard={setSideBoard}
-            setTotal={setTotal}
-          />
-        );
-      })}
+      {sideBoard
+        .filter((card) => card.isVisible)
+        .map((card) => {
+          return (
+            <SideBoardCard
+              key={card.id}
+              card={card}
+              total={total}
+              setSideBoard={setSideBoard}
+              setTotal={setTotal}
+            />
+          );
+        })}
     </div>
   );
 }
